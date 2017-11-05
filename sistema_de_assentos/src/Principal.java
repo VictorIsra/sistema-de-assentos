@@ -23,8 +23,8 @@ public class Principal {
 					+ Constantes.tempo_programa / Constantes.fator + " SEGUNDOS");
 			System.out.println("arquivo de saída: " + Constantes.full_path + " conterá toda a atividade de programa");
 			System.out.println("\n***EXECUTANDO PROGRAMA E GERANDO O LOG DE SAÍDA, POR FAVOR AGUARDE...***");
-			// stream = new PrintStream(Constantes.full_path);
-			stream = new PrintStream(console_stream);
+			// stream = new PrintStream(Constantes.full_path);       //SE DESCOMENTADO MOSTRATÁ A SAÍDA DAS THREADS EM UM ARQUIVO LOG
+			stream = new PrintStream(console_stream);			 //SE DESCOMENTADO MOSTRARÁ A SAÍDA DAS THREADS NO PŔOPRIO CONSOLE DO ECLIPSE
 			assentos = new Assento[Constantes.qtdade_assentos];
 			clientes = new Cliente[Constantes.qtdade_clientes];
 			// Runnable log_thread = new Salva_log(0,buffer);// thread log criada com id 0
