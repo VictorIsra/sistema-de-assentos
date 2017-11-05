@@ -1,4 +1,3 @@
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.Random;
@@ -11,24 +10,12 @@ public class Cliente implements Runnable {
 	private Random random = new Random();
 	private Assento[] assentos;// guardará todos os assentos
 	private Integer[] assentos_livres = new Integer[Constantes.qtdade_assentos];// guardará os indices dos assentos
-	private Object lock = new Object();
-	private int flag = 0;
-	private String mensagem = "";
-	// livres
-	private PrintStream stream;
-	private PrintStream console = System.out;
 
 	public Cliente(int id, Assento[] assentos, PrintStream stream) throws FileNotFoundException {
 		this.id = id;
 		this.assentos = assentos;
-		this.stream = stream;
 		System.setOut(stream);
 
-	}
-
-	private void escreve_log(String msg) {
-		System.setOut(stream);
-		System.out.println(msg);
 	}
 
 	public void run() {
@@ -40,10 +27,6 @@ public class Cliente implements Runnable {
 				int numero_assento = random.nextInt(Constantes.qtdade_assentos);
 				try {
 					System.out.println("o " + this + " está tentando reservar o assento " + numero_assento);
-					// mensagem = "o " + this + " está tentando reservar o assento " +
-					// numero_assento;
-					// escreve_log(mensagem);
-
 					if (assentos[numero_assento].reserva(this)) {
 						// ocupará o assento por um tempo aleatório:
 						reserva_assento(numero_assento);
@@ -85,10 +68,8 @@ public class Cliente implements Runnable {
 					for (int i = 0; i < 55; i++)
 						System.out.print("-------------");
 					assentos[assento_alvo].mostra_mapa(assentos, this);
-					// Thread.sleep(1000);
-					// }
+
 				} catch (InterruptedException e) {
-					// e.printStackTrace();
 				}
 			}
 		}
@@ -104,24 +85,19 @@ public class Cliente implements Runnable {
 
 	public void reserva_assento(int numero_assento) throws InterruptedException {
 		if (!Constantes.fim_programa) {
-			// System.out.println("
+
 			System.out.println("assento " + numero_assento + " reservado com sucesso pelo " + this);
 			// mensagem = "assento " + numero_assento + " reservado com sucesso pelo " +
-			// this;
-			// escreve_log(mensagem);
 			Thread.sleep(random.nextInt(10000));
-			// mostra_assentos_depois(numero_assento);
 		}
 	}
 
 	public void reserva_assento_livre(int numero_assento) throws InterruptedException {
 		if (!Constantes.fim_programa) {
 			System.out.println("assento livre " + numero_assento + " será reservado pelo " + this);
-			// mensagem = "assento livre " + numero_assento + " será reservado pelo " +
-			// this;
-			// escreve_log(mensagem);
+
 			Thread.sleep(random.nextInt(10000));
-			// mostra_assentos_depois(numero_assento);
+
 		}
 
 	}
@@ -130,11 +106,6 @@ public class Cliente implements Runnable {
 		if (!Constantes.fim_programa) {
 			System.out.println(this + " não conseguiu reservar o assento " + numero_assento
 					+ " pois o mesmo está ocupado pelo cliente " + assentos[numero_assento].get_cliente_id());
-
-			// mensagem = this + " não conseguiu reservar o assento " + numero_assento
-			// + " pois o mesmo está ocupado pelo cliente " +
-			// assentos[numero_assento].get_cliente_id();
-			// escreve_log(mensagem);
 		}
 
 	}
