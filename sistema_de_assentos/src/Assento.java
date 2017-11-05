@@ -64,7 +64,7 @@ public class Assento {
 		return status;
 	}
 
-	public synchronized void mostra_mapa(Assento[] assentos, Cliente cliente) throws InterruptedException {
+	public  void mostra_mapa(Assento[] assentos, Cliente cliente) throws InterruptedException {
 		System.setOut(stream);// DESCOMENTE PARA VER SAIDA IDEAL PARA USAR POSTERIORMENTE NO PARSE
 		System.out.print("\n");
 		System.out.print("	***MAPA DE ASSENTOS SOCILICATO POR*** " + cliente);
