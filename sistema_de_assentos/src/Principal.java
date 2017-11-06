@@ -25,7 +25,7 @@ public class Principal {
 			System.out.println("número de threads clientes: " + Constantes.qtdade_clientes);
 			System.out.println("arquivo de saída: " + Constantes.full_path + " conterá toda a atividade de programa");
 			System.out.println("\nEXECUTANDO PROGRAMA E GERANDO O LOG DE SAÍDA, POR FAVOR AGUARDE..");
-			 //stream = new PrintStream(Constantes.full_path);       //SE DESCOMENTADO MOSTRATÁ A SAÍDA DAS THREADS EM UM ARQUIVO LOG
+			// stream = new PrintStream(Constantes.full_path);       //SE DESCOMENTADO MOSTRATÁ A SAÍDA DAS THREADS EM UM ARQUIVO LOG
 			stream = new PrintStream(console_stream);			 //SE DESCOMENTADO MOSTRARÁ A SAÍDA DAS THREADS NO PŔOPRIO CONSOLE DO ECLIPSE
 			assentos = new Assento[Constantes.qtdade_assentos];
 			clientes = new Cliente[Constantes.qtdade_clientes];
@@ -57,7 +57,7 @@ public class Principal {
 			System.out.println(
 					"----------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println(
-					"PARA EXECUTAR NO MODO GERADOR DE LOG DESCOMENTE A LINHA 28 E COMENTE A LINHA 29 DA CLASSE: Principal.java");
+					"PARA EXECUTAR NO MODO LOG DESCOMENTE A LINHA 28 E COMENTE A LINHA 29 DA CLASSE: Principal.java");
 			System.out.println(
 					"----------------------------------------------------------------------------------------------------------------------------------------");
 			System.out.println(
