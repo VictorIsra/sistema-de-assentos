@@ -15,6 +15,6 @@ public class Constantes {
 		public static final int fator = 1000;
 		public static volatile boolean fim_programa = false;
 		public static final String arquivo_saida = "/res/log.txt";
-		public static final String full_path = file_path + arquivo_saida;//"/res/log.txt";
+		public static final String full_path = file_path + arquivo_saida;
 	
 }
